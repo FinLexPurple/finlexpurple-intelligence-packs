@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "created": "2026-11-04",
+    "files": [],
+    "min_client_version": "0.4.0",
+    "previous_version": "0.4.0-2.1",
+    "schema_version": 1,
+    "signature_ref": null,
+    "version": "0.4.0-2.2"
+  },
+  "patterns": [
+    {
+      "content_hash": "sha256:20b8b82e2d8ed5495cdfbb4399ec477556275106481e61dc4e3773622eebc272",
+      "fingerprint": "FinLexPurple-Target/0.4.0",
+      "ordered_agents": [
+        "cashier"
+      ],
+      "provenance": "lab",
+      "reproduced_strategy": "order_idor: two authenticated sessions (owner + non-owner) read the same per-user order resource; cross-account access reproduced when the non-owner receives the owner's exact object (verified against the owner's authorized view)."
+    },
+    {
+      "content_hash": "sha256:e84c319c76b2b8b487c65855802c585f64e10171277e7976ae9f5d7176bfcdc5",
+      "fingerprint": "FinLexPurple-Target/0.4.0",
+      "ordered_agents": [
+        "cashier"
+      ],
+      "provenance": "lab",
+      "reproduced_strategy": "coupon_abuse: a client-supplied coupon code the shop never issued is trusted and applied to the cart; reproduced when an in-scope order-status read-back shows the illegitimate discount durably persisted on the order."
+    }
+  ]
+}
