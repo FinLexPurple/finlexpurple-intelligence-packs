@@ -1,12 +1,12 @@
 {
   "manifest": {
-    "created": "2026-11-04",
+    "created": "2026-11-06",
     "files": [],
     "min_client_version": "0.4.0",
-    "previous_version": "0.4.0-2.1",
+    "previous_version": "0.4.0-2.2",
     "schema_version": 1,
     "signature_ref": null,
-    "version": "0.4.0-2.2"
+    "version": "0.4.0-2.3"
   },
   "patterns": [
     {
@@ -26,6 +26,15 @@
       ],
       "provenance": "lab",
       "reproduced_strategy": "coupon_abuse: a client-supplied coupon code the shop never issued is trusted and applied to the cart; reproduced when an in-scope order-status read-back shows the illegitimate discount durably persisted on the order."
+    },
+    {
+      "content_hash": "sha256:c11e43f5d3ad2db98d278ee053d59a5659a623310038a74c94da82630c67ddfc",
+      "fingerprint": "FinLexPurple-Target/0.4.0",
+      "ordered_agents": [
+        "cashier"
+      ],
+      "provenance": "lab",
+      "reproduced_strategy": "payment_status_trust: the order's own status endpoint trusts a client-supplied status and persists it without settlement; reproduced when an in-scope order-status read-back shows the order durably marked (e.g. paid) that the client set directly."
     }
   ]
 }
