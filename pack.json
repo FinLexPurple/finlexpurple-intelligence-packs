@@ -1,12 +1,12 @@
 {
   "manifest": {
-    "created": "2026-11-06",
+    "created": "2026-11-07",
     "files": [],
     "min_client_version": "0.4.0",
-    "previous_version": "0.4.0-2.2",
+    "previous_version": "0.4.0-2.3",
     "schema_version": 1,
     "signature_ref": null,
-    "version": "0.4.0-2.3"
+    "version": "0.4.0-2.4"
   },
   "patterns": [
     {
@@ -35,6 +35,15 @@
       ],
       "provenance": "lab",
       "reproduced_strategy": "payment_status_trust: the order's own status endpoint trusts a client-supplied status and persists it without settlement; reproduced when an in-scope order-status read-back shows the order durably marked (e.g. paid) that the client set directly."
+    },
+    {
+      "content_hash": "sha256:d355d205bf9613cf2445551db0e200ab36dcea2aa4836be47515b0c26a6bf8c4",
+      "fingerprint": "FinLexPurple-Target/0.4.0",
+      "ordered_agents": [
+        "cashier"
+      ],
+      "provenance": "lab",
+      "reproduced_strategy": "refund_abuse: the order's refund endpoint trusts a client-supplied amount and adds it to the order's refunded total with no amount or idempotency check; reproduced when an in-scope refund-status read-back shows the order's refunded total durably exceeding the amount paid."
     }
   ]
 }
