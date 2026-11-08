@@ -1,12 +1,12 @@
 {
   "manifest": {
-    "created": "2026-11-07",
+    "created": "2026-11-08",
     "files": [],
     "min_client_version": "0.4.0",
-    "previous_version": "0.4.0-2.3",
+    "previous_version": "0.4.0-2.4",
     "schema_version": 1,
     "signature_ref": null,
-    "version": "0.4.0-2.4"
+    "version": "0.4.0-2.5"
   },
   "patterns": [
     {
@@ -44,6 +44,15 @@
       ],
       "provenance": "lab",
       "reproduced_strategy": "refund_abuse: the order's refund endpoint trusts a client-supplied amount and adds it to the order's refunded total with no amount or idempotency check; reproduced when an in-scope refund-status read-back shows the order's refunded total durably exceeding the amount paid."
+    },
+    {
+      "content_hash": "sha256:31c8a57d4b6faa554995e0c18908f1d4d8592d7c4c66e4fce0a6e964efa9216d",
+      "fingerprint": "FinLexPurple-Target/0.4.0",
+      "ordered_agents": [
+        "cashier"
+      ],
+      "provenance": "lab",
+      "reproduced_strategy": "race_condition: a single-use store-credit voucher redemption guards with a non-atomic check-then-act (read the applied-count, then grant credit) and no lock or idempotency key, so a bounded, gated concurrent burst can bypass the guard. Reproduced only if an in-scope read-back shows the operation durably applied more than once this run; because a genuine race is non-deterministic this is usually INCONCLUSIVE — a human-review lead, never evidence the race is absent."
     }
   ]
 }
